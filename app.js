@@ -7,11 +7,17 @@ import {
   sendPasswordResetEmail,
   onAuthStateChanged
 } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-auth.js";
+import {
+  getDatabase,
+  ref,
+  set
+} from "https://www.gstatic.com/firebasejs/11.0.2/firebase-database.js";
 
 // Firebase configuration
 const firebaseConfig = {
   apiKey: "AIzaSyAygXmljFXAUHpTMFWlxklzCOzbBQwjsbw",
   authDomain: "asg2dda.firebaseapp.com",
+  databaseURL: "https://asg2dda-default-rtdb.asia-southeast1.firebasedatabase.app",
   projectId: "asg2dda",
   storageBucket: "asg2dda.firebasestorage.app",
   messagingSenderId: "269260739471",
@@ -22,6 +28,7 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
+const database = getDatabase(app);
 
 // DOM Elements
 const loginContainer = document.querySelector(".login-container");
@@ -34,13 +41,8 @@ const forgotPasswordForm = document.getElementById("forgot-password-form");
 
 const signUpLink = document.getElementById("sign-up-link");
 const loginLink = document.getElementById("login-link");
-const forgotPasswordLink = document.createElement("a");
+const forgotPasswordLink = document.getElementById("forgot-password-link");
 const backToLoginLink = document.getElementById("back-to-login-link");
-
-forgotPasswordLink.href = "#";
-forgotPasswordLink.textContent = "Forgot Password?";
-forgotPasswordLink.id = "forgot-password-link";
-loginContainer.appendChild(forgotPasswordLink);
 
 // Handle Login
 loginForm.addEventListener("submit", async (e) => {
@@ -63,15 +65,36 @@ signupForm.addEventListener("submit", async (e) => {
   e.preventDefault();
   const email = document.getElementById("signup-email").value;
   const password = document.getElementById("signup-password").value;
-
+  const username = document.getElementById("signup-username").value;
+  console.log('hi')
   try {
     const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+    const user = userCredential.user;
+
+    let userRef = await ref(database, `users/${user.uid}`);
+    console.log("uref " + userRef)
+    // Store username in Realtime Database
+    await set(userRef, {
+      username: username,
+      email: email,
+      Scenario1: 'NA',
+      Scenario2: 'NA',
+      Scenario3: 'NA',
+      OverallGrade: 'NA',
+      PassFail: false
+    })
+    .then(() => {
+      console.log('succes')
+    })
+    .catch(() => {
+      console.log('nop')
+    });
+
     alert("Signup Successful!");
-    console.log("New User Info:", userCredential.user);
+    console.log("New User Info:", user);
     toggleForms("login"); // Switch back to login form
   } catch (error) {
-    alert(`Signup Failed: ${error.message}`);
-    console.error("Signup Error:", error);
+    // ... (Your existing error handling)
   }
 });
 

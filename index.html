@@ -3,10 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Firebase Login</title>
+  <title>Firebase Authentication</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <!-- Login Form -->
   <div class="login-container">
     <h1>Login</h1>
     <form id="login-form">
@@ -15,11 +16,14 @@
       <button type="submit">Login</button>
     </form>
     <p>Don't have an account? <a href="#" id="sign-up-link">Sign Up</a></p>
+    <a href="#" id="forgot-password-link">Forgot Password?</a>
   </div>
 
+  <!-- Signup Form -->
   <div class="signup-container" style="display:none;">
     <h1>Sign Up</h1>
     <form id="signup-form">
+      <input type="text" id="signup-username" placeholder="Username" required>
       <input type="email" id="signup-email" placeholder="Email" required>
       <input type="password" id="signup-password" placeholder="Password" required>
       <button type="submit">Sign Up</button>
@@ -27,8 +31,7 @@
     <p>Already have an account? <a href="#" id="login-link">Login</a></p>
   </div>
 
-  <script type="module" src="app.js"></script>
-
+  <!-- Forgot Password Form -->
   <div class="forgot-password-container" style="display:none;">
     <h1>Forgot Password</h1>
     <form id="forgot-password-form">
@@ -37,6 +40,7 @@
     </form>
     <p>Remembered your password? <a href="#" id="back-to-login-link">Back to Login</a></p>
   </div>
-  
+
+  <script type="module" src="app.js"></script>
 </body>
 </html>
