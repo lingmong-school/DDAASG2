@@ -10,7 +10,8 @@ import {
 import {
   getDatabase,
   ref,
-  set
+  set,
+  get
 } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-database.js";
 
 // Firebase configuration
@@ -52,13 +53,56 @@ loginForm.addEventListener("submit", async (e) => {
 
   try {
     const userCredential = await signInWithEmailAndPassword(auth, email, password);
-    alert("Login Successful!");
-    console.log("User Info:", userCredential.user);
+    const user = userCredential.user;
+
+    console.log("Login Successful! User Info:", user);
+
+    // Fetch and display user stats after login
+    fetchAndDisplayStats(user.uid);
   } catch (error) {
     alert(`Login Failed: ${error.message}`);
     console.error("Login Error:", error);
   }
 });
+
+// Fetch and Display Stats
+async function fetchAndDisplayStats(userId) {
+  try {
+    const userRef = ref(database, `users/${userId}`);
+
+    // Fetch user data
+    const snapshot = await get(userRef);
+
+    if (snapshot.exists()) {
+      const userData = snapshot.val();
+
+      // Populate stats in the report slip section
+      document.getElementById("report-username").textContent = userData.username || "N/A";
+      document.getElementById("report-email").textContent = userData.email || "N/A";
+      document.getElementById("report-scenario1").textContent = userData.Scenario1 || "N/A";
+      document.getElementById("report-scenario2").textContent = userData.Scenario2 || "N/A";
+      document.getElementById("report-scenario3").textContent = userData.Scenario3 || "N/A";
+      document.getElementById("report-overall").textContent = userData.OverallGrade || "N/A";
+      document.getElementById("report-passfail").textContent = userData.PassFail ? "Pass" : "Fail";
+
+      // Switch to the report slip section
+      showReportSlip();
+    } else {
+      console.error("No user data found");
+      alert("No user data found!");
+    }
+  } catch (error) {
+    console.error("Error fetching user data:", error);
+  }
+}
+
+
+// Show Report Slip Section
+function showReportSlip() {
+  document.querySelector(".login-container").style.display = "none";
+  document.querySelector(".report-slip-container").style.display = "block";
+}
+
 
 // Handle Signup
 signupForm.addEventListener("submit", async (e) => {

@@ -1,76 +1,100 @@
+/* General Styles */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f3f4f6;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-  }
-  
-  .login-container, .signup-container {
-    background: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 300px;
-    text-align: center;
-  }
-  
-  input {
-    width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-  }
-  
-  button {
-    background-color: #4CAF50;
-    color: white;
-    padding: 10px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    width: 100%;
-  }
-  
-  button:hover {
-    background-color: #45a049;
-  }
-  
-  a {
-    color: #4CAF50;
-    text-decoration: none;
-    cursor: pointer;
-  }
-  
-  a:hover {
-    text-decoration: underline;
-  }
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  overflow: hidden; /* Prevent scrollbars */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Arial, sans-serif;
 
-  .forgot-password-container {
-    background: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 300px;
-    text-align: center;
-    display: none; /* Initially hidden */
+  /* Fish Tank Gradient Background */
+  background: linear-gradient(
+    to bottom right,
+    #087a7c,  /* Starting color */
+    #54ae9e,  /* Transition color */
+    #1d7b59   /* Ending color */
+  );
+}
+
+/* Wave Effect */
+.wave {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 200%; /* Extend width for seamless animation */
+  height: 100px;
+  background: url('https://img.freepik.com/free-vector/creative-waves-blue-background-dynamic-shapes-composition-vector-illustration_1142-13250.jpg?t=st=1733239198~exp=1733242798~hmac=c7989fef3dbdf1e64e195ac6055bf01e28c893b8dde93747eef9b5538b7b13e0&w=2000') repeat-x;
+  background-size: contain;
+  animation: moveWave 5s linear infinite;
+}
+
+@keyframes moveWave {
+  from {
+    transform: translateX(0);
   }
-  
-  button {
-    background-color: #4CAF50;
-    color: white;
-    padding: 10px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    width: 100%;
+  to {
+    transform: translateX(-50%);
   }
-  
-  button:hover {
-    background-color: #45a049;
-  }
-  
-  
+}
+
+/* Form Containers */
+.login-container,
+.signup-container,
+.forgot-password-container {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 300px;
+  text-align: center;
+  display: none; /* Initially hidden */
+}
+
+.login-container {
+  display: block; /* Default form to display */
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 100%;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+a {
+  color: #4CAF50;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Report Slip Styles */
+.report-slip-container {
+  margin: 20px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  max-width: 500px;
+  text-align: left;
+}

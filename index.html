@@ -7,6 +7,9 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <!-- Moving Wave Effect -->
+  <div class="wave"></div>
+
   <!-- Login Form -->
   <div class="login-container">
     <h1>Login</h1>
@@ -39,6 +42,18 @@
       <button type="submit">Reset Password</button>
     </form>
     <p>Remembered your password? <a href="#" id="back-to-login-link">Back to Login</a></p>
+  </div>
+
+  <!-- Report Slip Section -->
+  <div class="report-slip-container" style="display: none;">
+    <h1>Report Slip</h1>
+    <p><strong>Username:</strong> <span id="report-username">N/A</span></p>
+    <p><strong>Email:</strong> <span id="report-email">N/A</span></p>
+    <p><strong>Scenario 1:</strong> <span id="report-scenario1">N/A</span></p>
+    <p><strong>Scenario 2:</strong> <span id="report-scenario2">N/A</span></p>
+    <p><strong>Scenario 3:</strong> <span id="report-scenario3">N/A</span></p>
+    <p><strong>Overall Grade:</strong> <span id="report-overall">N/A</span></p>
+    <p><strong>Pass/Fail:</strong> <span id="report-passfail">N/A</span></p>
   </div>
 
   <script type="module" src="app.js"></script>
