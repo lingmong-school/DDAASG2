@@ -1,32 +1,46 @@
-/* General Styles */
-body {
+/* Reset styles */
+* {
   margin: 0;
   padding: 0;
-  height: 100vh;
-  overflow: hidden; /* Prevent scrollbars */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-family: Arial, sans-serif;
-
-  /* Fish Tank Gradient Background */
-  background: linear-gradient(
-    to bottom right,
-    #087a7c,  /* Starting color */
-    #54ae9e,  /* Transition color */
-    #1d7b59   /* Ending color */
-  );
+  box-sizing: border-box;
 }
 
-/* Wave Effect */
+/* Body and Background */
+body {
+  font-family: Arial, sans-serif;
+  background: linear-gradient(
+    to bottom ,
+    #0cb3b6,  /* Starting color */
+    #087a7c,  /* Transition color */
+    #1d7b59   /* Ending color */
+  );
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Navigation Menu */
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 120px;
+  background-color: #087a7c;
+  z-index: 100;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .wave {
   position: absolute;
   top: 0;
   left: 0;
-  width: 200%; /* Extend width for seamless animation */
+  width: 100%;
   height: 100px;
-  background: url('https://img.freepik.com/free-vector/creative-waves-blue-background-dynamic-shapes-composition-vector-illustration_1142-13250.jpg?t=st=1733239198~exp=1733242798~hmac=c7989fef3dbdf1e64e195ac6055bf01e28c893b8dde93747eef9b5538b7b13e0&w=2000') repeat-x;
+  background: url('https://i.postimg.cc/6Qnt9mKg/waves.png') repeat-x;
   background-size: contain;
+  z-index: -1; /* Push behind other content */
   animation: moveWave 5s linear infinite;
 }
 
@@ -39,21 +53,51 @@ body {
   }
 }
 
-/* Form Containers */
+nav ul {
+  list-style: none;
+  display: flex;
+  margin: 0 20px;
+}
+
+.nav-left {
+  margin-left: 20px;
+}
+
+.nav-right {
+  margin-right: 20px;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 5px 10px;
+  transition: background-color 0.3s;
+}
+
+nav ul li a:hover {
+  background-color: #54ae9e;
+  border-radius: 4px;
+}
+
+/* Containers for Sections */
+.home-container,
 .login-container,
 .signup-container,
-.forgot-password-container {
-  background: #fff;
+.report-slip-container,
+.booking-container {
+  background: white;
+  margin: 140px auto; /* Adjust for header height */
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  width: 300px;
+  width: 400px;
   text-align: center;
-  display: none; /* Initially hidden */
+  display: none; /* Hidden by default */
 }
 
-.login-container {
-  display: block; /* Default form to display */
+.home-container {
+  display: block; /* Show home by default */
 }
 
 input {
@@ -81,20 +125,44 @@ button:hover {
 a {
   color: #4CAF50;
   text-decoration: none;
-  cursor: pointer;
 }
 
 a:hover {
   text-decoration: underline;
 }
 
-/* Report Slip Styles */
-.report-slip-container {
-  margin: 20px;
+/* Profile Container */
+.profile-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 150px; /* Adjust for header height */
   padding: 20px;
-  border: 1px solid #ccc;
+  background: white;
   border-radius: 8px;
-  background-color: #f9f9f9;
-  max-width: 500px;
-  text-align: left;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 80%; /* Expand width for better visibility */
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left; /* Align text for readability */
 }
+
+/* Report Slip */
+.report-slip {
+  width: 100%; /* Take full width of the container */
+}
+
+.report-slip p {
+  margin: 10px 0; /* Add spacing between lines */
+  font-size: 16px; /* Increase font size for readability */
+  color: #333; /* Dark text for contrast */
+}
+
+/* General Fix for Containers */
+.container {
+  margin-top: 150px; /* Adjust for header height */
+}
+
+
