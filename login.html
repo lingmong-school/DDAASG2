@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Log In</title>
+  <link rel="stylesheet" href="style.css">
+  <script type="module" src="app.js"></script>
+</head>
+<body>
+  <!-- Header -->
+  <nav>
+    <ul id="nav-left" class="nav-left">
+      <li id="nav-home"><a href="index.html">Home</a></li>
+    </ul>
+    <ul id="nav-right" class="nav-right">
+      <li id="nav-login"><a href="login.html">Log In</a></li>
+      <li id="nav-signup"><a href="signup.html">Sign Up</a></li>
+    </ul>
+  </nav>
+
+  <!-- Login Section -->
+  <div class="login-container">
+    <div class="login-form">
+      <img src="https://i.postimg.cc/BnyWYnST/transparent-logo.png" alt="Logo" class="form-logo">
+      <h2>Sign in</h2>
+      <p>Sign in to manage your account and settings!</p>
+      <form id="login-form">
+        <input type="email" id="email" placeholder="Email" required>
+        <input type="password" id="password" placeholder="Password" required>
+        <div class="login-options">
+          <label>
+            <input type="checkbox"> Remember me
+          </label>
+          <a href="forgot-password.html" id="forgot-password-link">Forgot password?</a>
+        </div>
+        <button type="submit" class="transparent-btn">Log In</button>
+      </form>
+    </div>
+  </div>
+</body>
+</html>
+
+

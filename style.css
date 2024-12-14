@@ -9,10 +9,10 @@
 body {
   font-family: Arial, sans-serif;
   background: linear-gradient(
-    to bottom ,
-    #0cb3b6,  /* Starting color */
-    #087a7c,  /* Transition color */
-    #1d7b59   /* Ending color */
+    to bottom,
+    #065c5e,
+    #087a7c,
+    #1d7b59
   );
   height: 100vh;
   display: flex;
@@ -24,33 +24,13 @@ nav {
   position: fixed;
   top: 0;
   width: 100%;
-  height: 120px;
-  background-color: #087a7c;
-  z-index: 100;
+  height: 100px;
+  background-color: #f6ffff;
   display: flex;
   justify-content: space-between;
   align-items: center;
-}
-
-.wave {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100px;
-  background: url('https://i.postimg.cc/6Qnt9mKg/waves.png') repeat-x;
-  background-size: contain;
-  z-index: -1; /* Push behind other content */
-  animation: moveWave 5s linear infinite;
-}
-
-@keyframes moveWave {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-50%);
-  }
+  z-index: 100;
+  box-shadow: #043738;
 }
 
 nav ul {
@@ -59,20 +39,13 @@ nav ul {
   margin: 0 20px;
 }
 
-.nav-left {
-  margin-left: 20px;
-}
-
-.nav-right {
-  margin-right: 20px;
-}
-
 nav ul li a {
-  color: white;
+  color: #087a7c;
   text-decoration: none;
   font-weight: bold;
-  padding: 5px 10px;
+  padding: 5px 20px;
   transition: background-color 0.3s;
+  font-size: 25px;
 }
 
 nav ul li a:hover {
@@ -80,89 +53,450 @@ nav ul li a:hover {
   border-radius: 4px;
 }
 
-/* Containers for Sections */
-.home-container,
-.login-container,
-.signup-container,
-.report-slip-container,
-.booking-container {
-  background: white;
-  margin: 140px auto; /* Adjust for header height */
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  width: 400px;
-  text-align: center;
-  display: none; /* Hidden by default */
+/* Home Container */
+.home-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: calc(100vh - 60px); /* Adjust for header height */
+  padding: 0 50px;
+  background: linear-gradient(to left, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.4)), 
+              url('https://i.postimg.cc/JzhszFhq/9d9ad506-a47c-49a0-98ff-a0d2bc878fbb.jpg') no-repeat right;
+  background-size: cover; /* Ensures the image covers the entire container */
+  background-position: right center; /* Focus the image on the right center */
 }
 
-.home-container {
-  display: block; /* Show home by default */
+
+.home-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.logo {
+  width: 300px; /* Larger logo size */
+  height: auto;
+  margin-left: 50px; /* Distance from the left edge */
+  margin-top: 20px; /* Add space below the header */
+}
+
+/* About Box */
+.about-box {
+  color: white; /* Text color set to white */
+  text-align: left; /* Align text to the left */
+  margin-left: 20px; /* Add some margin to separate it from the logo */
+}
+
+.about-box h2 {
+  font-size: 50px; /* Adjust the size of the heading */
+  margin-bottom: 15px;
+}
+
+.about-box p {
+  font-size: 30px; /* Adjust text size */
+  line-height: 1.6; /* Adjust line spacing */
+  margin-bottom: 25px;
+}
+
+/* Learn More Button */
+.learn-more-btn {
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+  background: transparent; /* Transparent background */
+  border: 2px solid white; /* White border for the button */
+  border-radius: 5px;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.learn-more-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(255, 255, 255, 0.3);
+}
+
+
+
+/* Login and Signup Containers */
+.login-container,
+.signup-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed; /* Fixes the container to the viewport */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10; /* Ensures it appears above other elements */
+}
+
+/* Form Styling */
+.login-form,
+.signup-form {
+  background: rgba(255, 255, 255, 0.15);
+  border: 2px solid white;
+  border-radius: 20px;
+  padding: 40px;
+  width: 500px; /* Larger form width */
+  text-align: center;
+  box-shadow: 0 6px 20px rgba(255, 255, 255, 0.3);
+}
+
+.form-logo {
+  width: 120px; /* Larger logo */
+  height: auto;
+  margin-bottom: 20px;
+}
+
+h2 {
+  font-size: 36px;
+  margin-bottom: 10px;
+  color: white;
+}
+
+p {
+  margin-bottom: 20px;
+  font-size: 18px;
+  color: white;
+  opacity: 0.8;
 }
 
 input {
-  width: 100%;
-  padding: 10px;
+  width: 90%;
+  padding: 12px;
   margin: 10px 0;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
-
-button {
-  background-color: #4CAF50;
+  border: 1px solid white;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.2);
   color: white;
-  padding: 10px;
-  border: none;
-  border-radius: 4px;
+  font-size: 18px;
+}
+
+input::placeholder {
+  color: white;
+  opacity: 0.7;
+}
+
+input:focus {
+  outline: none;
+  border-color: #54ae9e;
+}
+
+.transparent-btn {
+  padding: 15px 30px;
+  font-size: 18px;
+  font-weight: bold;
+  color: white;
+  background: transparent;
+  border: 2px solid white;
+  border-radius: 10px;
   cursor: pointer;
-  width: 100%;
+  transition: transform 0.2s, box-shadow 0.2s;
+  margin-top: 15px;
 }
 
-button:hover {
-  background-color: #45a049;
+.transparent-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.3);
 }
 
-a {
-  color: #4CAF50;
+/* Login Options */
+.login-options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 15px 0;
+  font-size: 14px;
+  color: white;
+}
+
+.login-options a {
+  color: #b2fff1;
   text-decoration: none;
+  font-weight: bold;
 }
 
-a:hover {
+.login-options a:hover {
   text-decoration: underline;
 }
 
-/* Profile Container */
-.profile-container {
+/* Forgot Password Container */
+.forgot-password-container {
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 150px; /* Adjust for header height */
+  width: 100%;
+  height: 100vh;
+}
+
+.forgot-password-form {
+  background: rgba(255, 255, 255, 0.15);
+  border: 2px solid white;
+  border-radius: 20px;
+  padding: 40px;
+  width: 500px;
+  text-align: center;
+  box-shadow: 0 6px 20px rgba(255, 255, 255, 0.3);
+}
+
+.form-logo {
+  width: 100px;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+h2 {
+  font-size: 36px;
+  margin-bottom: 10px;
+  color: white;
+}
+
+p {
+  margin-bottom: 20px;
+  font-size: 18px;
+  color: white;
+  opacity: 0.8;
+}
+
+input {
+  width: 90%;
+  padding: 12px;
+  margin: 10px 0;
+  border: 1px solid white;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  font-size: 18px;
+}
+
+input::placeholder {
+  color: white;
+  opacity: 0.7;
+}
+
+input:focus {
+  outline: none;
+  border-color: #54ae9e;
+}
+
+.transparent-btn {
+  padding: 15px 30px;
+  font-size: 18px;
+  font-weight: bold;
+  color: white;
+  background: transparent;
+  border: 2px solid white;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  margin-top: 15px;
+}
+
+.transparent-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.3);
+}
+
+p a {
+  color: #b2fff1;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+p a:hover {
+  text-decoration: underline;
+}
+
+/* Booking Container */
+.booking-container {
+  display: flex;
+  flex-direction: column; /* Ensure items are stacked vertically */
+  justify-content: center; /* Center vertically */
+  align-items: center; /* Center horizontally */
+  width: 100%;
+  height: calc(100vh - 100px); /* Full height minus header */
   padding: 20px;
-  background: white;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  width: 80%; /* Expand width for better visibility */
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
-  text-align: left; /* Align text for readability */
 }
 
-/* Report Slip */
-.report-slip {
-  width: 100%; /* Take full width of the container */
+/* Booking Header */
+.booking-header {
+  text-align: center;
+  margin-bottom: 20px; /* Space between heading and containers */
 }
 
-.report-slip p {
-  margin: 10px 0; /* Add spacing between lines */
-  font-size: 16px; /* Increase font size for readability */
-  color: #333; /* Dark text for contrast */
+.booking-header h1 {
+  font-size: 40px;
+  color: white;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
 }
 
-/* General Fix for Containers */
-.container {
-  margin-top: 150px; /* Adjust for header height */
+/* Booking Content Layout */
+.booking-content {
+  display: flex;
+  gap: 20px;
+  justify-content: center; /* Center the calendar and map horizontally */
+  align-items: flex-start; /* Align items at the top */
+  width: 100%;
 }
 
 
+/* Booking Left Section */
+.booking-left {
+  flex: 1; /* Equalize width with the right box */
+  background: rgba(255, 255, 255, 0.15);
+  border: 2px solid white;
+  border-radius: 20px;
+  padding: 30px;
+  text-align: center;
+  box-shadow: 0 6px 20px rgba(255, 255, 255, 0.3);
+  max-width: 500px;
+  height: 400px; /* Set a fixed height */
+}
+
+/* Calendar Header */
+.booking-left h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: white;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
+}
+
+/* Calendar Days Grid */
+.calendar-days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 10px;
+  margin-top: 20px;
+}
+
+/* Days Buttons */
+.calendar-days button {
+  padding: 15px;
+  font-size: 16px;
+  color: white;
+  background: rgba(255, 255, 255, 0.2);
+  border: 2px solid white;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.calendar-days button:hover {
+  background: rgba(255, 255, 255, 0.5);
+  color: #087a7c;
+  transform: scale(1.05);
+}
+
+/* Booking Right Section */
+.booking-right {
+  flex: 1; /* Equalize width with the left box */
+  background: rgba(255, 255, 255, 0.15);
+  border: 2px solid white;
+  border-radius: 20px;
+  padding: 30px; /* Match padding with the left box */
+  text-align: center;
+  box-shadow: 0 6px 20px rgba(255, 255, 255, 0.3);
+  max-width: 500px;
+  height: 400px; /* Set the same fixed height */
+}
+
+
+
+/* Map Container */
+.map-container {
+  width: 100%;
+  height: 250px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.map-container iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+
+/* Centered Report Container */
+.report-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: calc(100vh - 100px); /* Full height minus header */
+  padding: 20px;
+  background: linear-gradient(
+    to bottom,
+    #065c5e,
+    #087a7c,
+    #1d7b59
+  );
+}
+
+/* Centered Report Container */
+.report-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: calc(100vh - 100px); /* Full height minus header */
+  padding: 20px;
+  background: linear-gradient(
+    to bottom,
+    #065c5e,
+    #087a7c,
+    #1d7b59
+  );
+}
+
+/* Report Box Styling */
+.report-box {
+  background: rgba(255, 255, 255, 0.15);
+  border: 2px solid white;
+  border-radius: 20px;
+  padding: 40px;
+  width: 600px; /* Large box width */
+  max-width: 90%; /* Responsive width */
+  text-align: center;
+  box-shadow: 0 6px 20px rgba(255, 255, 255, 0.3);
+  color: white;
+}
+
+/* Report Logo */
+.form-logo {
+  width: 120px;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+/* Report Title */
+.report-box h1 {
+  font-size: 36px;
+  margin-bottom: 20px;
+  color: white;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
+}
+
+/* Report Content Styling */
+.report-box p {
+  font-size: 18px;
+  margin-bottom: 15px;
+  color: white;
+}
+
+.report-box p strong {
+  font-weight: bold;
+  color: #c1fff4;
+}
+
+/* Highlighted Information */
+.report-box span {
+  display: inline-block;
+  padding: 5px 10px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  font-weight: bold;
+}

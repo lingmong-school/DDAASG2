@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Booking</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Header -->
+  <nav>
+    <ul id="nav-left" class="nav-left">
+      <li><a href="report.html">Report</a></li>
+      <li><a href="booking.html">Booking</a></li>
+    </ul>
+    <ul id="nav-right" class="nav-right">
+      <li><a id="logout-btn" href="#">Log Out</a></li>
+    </ul>
+  </nav>
+
+  <!-- Booking Section -->
+  <div class="booking-container">
+    <!-- Add heading -->
+    <div class="booking-header">
+      <h1>Book your appointment with us!</h1>
+    </div>
+
+    <!-- Content Layout: Calendar and Map -->
+    <div class="booking-content">
+      <!-- Left Section: Calendar -->
+      <div class="booking-left">
+        <h2>December 2024</h2>
+        <div class="calendar-days">
+          <!-- Days Buttons -->
+          <button>1</button>
+          <button>2</button>
+          <button>3</button>
+          <button>4</button>
+          <button>5</button>
+          <button>6</button>
+          <button>7</button>
+          <button>8</button>
+          <button>9</button>
+          <button>10</button>
+          <button>11</button>
+          <button>12</button>
+          <button>13</button>
+          <button>14</button>
+          <button>15</button>
+          <button>16</button>
+          <button>17</button>
+          <button>18</button>
+          <button>19</button>
+          <button>20</button>
+          <button>21</button>
+          <button>22</button>
+          <button>23</button>
+          <button>24</button>
+          <button>25</button>
+          <button>26</button>
+          <button>27</button>
+          <button>28</button>
+          <button>29</button>
+          <button>30</button>
+          <button>31</button>
+        </div>
+      </div>
+
+      <!-- Right Section: Map -->
+      <div class="booking-right">
+        <h2>Location</h2>
+        <div class="map-container">
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7966.593475020119!2d103.8001572808032!3d1.4402128406359504!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31da10ecddf8e5b5%3A0x82f1a16493cc8628!2s676%20Woodlands%20Dr%2071%2C%20Singapore%20730620!5e0!3m2!1sen!2ssg!4v1697234312345!5m2!1sen!2ssg" 
+            width="100%"
+            height="100%"
+            style="border:0;"
+            allowfullscreen=""
+            loading="lazy">
+          </iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Cancel Booking Button -->
+  <div style="text-align: center; margin-top: 20px;">
+    <button id="cancel-booking-btn" class="transparent-btn">Cancel Booking</button>
+  </div>
+
+  <!-- Include the JavaScript file -->
+  <script src="app.js" type="module"></script>
+</body>
+</html>
